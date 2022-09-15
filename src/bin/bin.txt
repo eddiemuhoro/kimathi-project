@@ -1,0 +1,10 @@
+<Grid container className='container'>
+<Grid item  xs={12} md={6}>
+
+ <AddMovie />
+</Grid>
+
+<Grid item  xs={12} md={6}>
+  <Realtime />
+</Grid>
+</Grid>
