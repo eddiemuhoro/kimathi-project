@@ -1,3 +1,4 @@
+
 import { Typography } from '@material-ui/core'
 import React from 'react'
 import { useEffect, useState } from 'react'
@@ -7,14 +8,13 @@ import {  Card, CardActionArea, Button, CardContent } from '@material-ui/core'
 import { moviesCollectionRef } from '../lib/firestoreCollections'
 import { db } from '../lib/init-firebase'
 const Realtime = () => {
+    
     const [movies, setMovies] = useState([])
-
 
     useEffect(()=>{
         const unSubscribe= onSnapshot( moviesCollectionRef, snapshot=>{
             setMovies(snapshot.docs.map(doc => ({id: doc.id, data: doc.data()})))
         })
-
         return ()=>{
             unSubscribe()
         }
@@ -30,6 +30,7 @@ const Realtime = () => {
    
       <div>
         <h4>Movies</h4>
+
         {movies.map(movie=>(
             
             <Card>
@@ -41,6 +42,9 @@ const Realtime = () => {
                         <Typography variant='body2' color='text.secondary'>
                             {movie.data.desc}
                         </Typography>
+
+                            <img src={movie.data.url} alt='image' style={{height: '100px'}}></img>
+
                         <Button variant='contained' color='secondary' onClick={() => deleteMovie(movie.id)}>Delete</Button>
                     </CardContent>
                 </CardActionArea>

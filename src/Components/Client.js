@@ -30,7 +30,7 @@ const Client = () => {
   return (
    
       <div>
-        <h4>Movies</h4>
+        <h4>Resources</h4>
         {movies.map(movie=>(
             
             <Card style={{margin: '20px'}}>
@@ -48,29 +48,13 @@ const Client = () => {
                  <CardHeader
                     avatar={
                     <Avatar  arial-label="recipe">
-                        <HearingTwoTone />
+                        <img src={movie.data.url} style={{height: '50px', width: '50px', borderRadius: '50%'}} />
                     </Avatar>
                      }
                      title={movie.data.name}
-                     subheader=""
+                     subheader={movie.data.desc}
                      />
-         
-          <CardContent>
-          
-          <Typography variant='body2' >{movie.data.desc}</Typography>
-          </CardContent>
 
-          <CardActions >
-            
-            <IconButton aria-label="add to favorites">
-              <Favorite  aria-label="add to favorites"/>
-            </IconButton>
-
-            <IconButton >
-              <Share />
-            </IconButton>
-
-          </CardActions>
             </Card>
             ))}
       </div>

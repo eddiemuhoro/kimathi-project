@@ -26,7 +26,7 @@ function App() {
       <Layout/>
         <Routes>
           <Route path="/" element={<AddResource/>}/>
-          <Route path="movies" element={ <Realtime/> } />
+          <Route path="movies" element={ <Client /> } />
           <Route path="contact" element={ <Contact/> } />
         </Routes>
       </BrowserRouter>) : <Auth />} </>}
