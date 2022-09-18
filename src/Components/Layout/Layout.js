@@ -28,14 +28,20 @@ const Layout = () => {
           >
             <Menu />
           </IconButton>
-          <Typography  variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Link style={{color: 'white', textDecoration: 'none', marginRight: '20px'}} to="/">Home</Link>
+        <Typography  variant="body" component="div" sx={{ flexGrow: 1 }}>
+                <Link style={{color: 'white', textDecoration: 'none', marginRight: '20px'}} to="/">Events</Link>
         </Typography>
 
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link style={{color: 'white', textDecoration: 'none'}} to="/movies">Post</Link>
+          <Typography variant="body" component="div" sx={{ flexGrow: 1 }}>
+            <Link style={{color: 'white', textDecoration: 'none', marginRight: '20px'}} to="/resource">Resources</Link>
           </Typography>
-         <Button style={{marginLeft: '60%', color:'wheat'}} onClick={logoutUser}>Log out</Button>
+
+          <Typography variant="body" component="div" sx={{ flexGrow: 1 }}>
+            <Link style={{color: 'white', textDecoration: 'none'}} to="/news">News</Link>
+          </Typography>
+
+
+         <Button style={{marginLeft: '20px', color:'wheat'}} onClick={logoutUser}>Log out</Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -1,5 +1,6 @@
 
 import './App.css'
+import './index.css'
 import { Routes, Route, BrowserRouter } from "react-router-dom"
 import { Grid } from '@material-ui/core';
 
@@ -15,6 +16,8 @@ import Client from './Components/Client';
 import SignUp from './Components/Layout/SignUp';
 import { useUserContext } from './Components/Authentication/context/userContext';
 import Auth from './Components/Authentication/components/auth';
+import AddEvent from './Components/AddEvent';
+import AddNews from './Components/AddNews';
 import AddResource from './Components/AddResource';
 function App() {
   const { user, loading, error } = useUserContext();
@@ -25,9 +28,9 @@ function App() {
       {loading ? <h2>Loading...</h2> : <> {user ? ( <BrowserRouter>
       <Layout/>
         <Routes>
-          <Route path="/" element={<AddResource/>}/>
-          <Route path="movies" element={ <Client /> } />
-          <Route path="contact" element={ <Contact/> } />
+          <Route path="/" element={<AddEvent/>}/>
+          <Route path="resource" element={ <AddResource /> } />
+          <Route path="news" element={ <AddNews/> } />
         </Routes>
       </BrowserRouter>) : <Auth />} </>}
       {/* <BrowserRouter>

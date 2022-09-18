@@ -6,7 +6,7 @@ import { deleteDoc, doc, onSnapshot } from 'firebase/firestore'
 import {  Card, CardActionArea, Button, CardContent } from '@material-ui/core'
 import { moviesCollectionRef } from '../lib/firestoreCollections'
 import { db } from '../lib/init-firebase'
-import { Favorite, HearingTwoTone, Share } from '@material-ui/icons'
+import { ArrowDownward, Favorite, HearingTwoTone, More, Share } from '@material-ui/icons'
 const Client = () => {
     const [movies, setMovies] = useState([])
 
@@ -21,16 +21,11 @@ const Client = () => {
         }
     }, [])
 
-    const deleteMovie = (id)=>{
-        deleteDoc(doc(db, 'movies', id))
-        .then(()=> alert('Movie deleted'))
-        .catch(error => console.log(error.message))
-    }
 
   return (
    
       <div>
-        <h4>Resources</h4>
+        <h4>Upcoming Events</h4>
         {movies.map(movie=>(
             
             <Card style={{margin: '20px'}}>
@@ -45,17 +40,34 @@ const Client = () => {
                         </Typography>
                     </CardContent>
                 </CardActionArea> */}
-                 <CardHeader
+                <a  style={{textDecoration: 'none'}} href={movie.data.link} rel="noreferrer" target='_blank'>
+                 <CardHeader 
                     avatar={
-                    <Avatar  arial-label="recipe">
-                        <img src={movie.data.url} style={{height: '50px', width: '50px', borderRadius: '50%'}} />
+                    <Avatar  arial-label="recipe" >
+                        <img src={movie.data.url} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt='image'/>
                     </Avatar>
                      }
                      title={movie.data.name}
                      subheader={movie.data.desc}
                      />
+                </a>
 
+                        <CardContent style={{display: 'flex', justifyContent: 'space-between'}}>
+                                <Typography variant='body2' color='text.secondar'>
+                                    Date: 12/12/2021
+                                </Typography>
+                                <Typography variant='body2' color='text.secondar'>
+                                Time: 2.30pm
+                        </Typography>
+                        </CardContent>
+                        {/* <CardActions style={{paddingTop: '0px'}}>
+                            <IconButton>
+                                <ArrowDownward/>
+                                <span style={{fontSize: '15px'}}>See more...</span>
+                            </IconButton>
+                        </CardActions> */}
             </Card>
+            
             ))}
       </div>
          

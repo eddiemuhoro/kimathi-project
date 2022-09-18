@@ -7,16 +7,28 @@ import { useEffect } from 'react'
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import firebase from 'firebase/compat/app';
 
-const AddResource = () => {
+const AddEvent = () => {
     const [name, setName]= useState('')
     const [desc, setDesc]= useState('')
     const [link, setLink]= useState('')
+    const [time, setTime]= useState('')
+    const [date, setDate]= useState('')
+    const [organizer, setOrganizer]= useState('')
+    const [venue, setVenue]= useState('')
+    const [data, setData]= useState([]);
 
     const [isfile, setFile] = useState(null)
     const handleImageAsFile= (e)=>{
       setFile(e.target.files[0]);
     }
 
+    const handleTime = (e)=>{
+      setTime(e.target.value)
+    }
+
+    const handleDate = (e)=>{
+      setDate(e.target.value)
+    }
 
     //insert to firebase-----------------------
     const handleSubmit= async(e) => {
@@ -26,7 +38,7 @@ const AddResource = () => {
 
           //storage for images
         const storage= getStorage();
-        var storagePath = 'resources/' + file.name;
+        var storagePath = 'images/' + file.name;
         const storageRef = ref(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -43,12 +55,12 @@ const AddResource = () => {
           getDownloadURL(uploadTask.snapshot.ref)
           .then((url)=>{
             console.log('file available at' , url);
-            const resourceCollectionRef = collection(db, 'todos')
+            const moviesCollectionRef = collection(db, 'movies')
             //add values to firestore firebase
             if(name=== '' || desc ===''){
               return
             }
-             addDoc(resourceCollectionRef, {url, name , desc })
+             addDoc(moviesCollectionRef, {url, name , desc , link, time, date, organizer, venue})
              setFile(null);
           })
         }
@@ -63,13 +75,13 @@ const AddResource = () => {
   return (
     <div>
       
-        <h4>Add Resource</h4>
+        <h4>Add Event</h4>
         <FormControl>
             
             <TextField 
             className='input'
             margin='dense'
-            label='Resource name'
+            label='event name'
             variant='outlined'
             placeholder='Movie Name'
             value={name}
@@ -83,10 +95,10 @@ const AddResource = () => {
              variant='outlined'
                 placeholder='Movie Description'
             title='desc'
-             id="resource" 
+             id="desc" 
              type='text' 
              aria-describedby="my-helper-text"
-              label='Resource Description'
+              label='Event Description'
               value= {desc}
               onChange={e => setDesc(e.target.value)} />
 
@@ -105,6 +117,28 @@ const AddResource = () => {
          
             <TextField id='file' type="file" accept=".png, .jpg, .jpeg" onChange={handleImageAsFile} label='' variant='outlined' />
 
+          {/* organizers. */}
+            <TextField
+            margin='dense'
+            type='text'
+            placeholder='Organizer Name'
+            variant='outlined'
+            label='Organizer Name'
+            onChange={e => setOrganizer(e.target.value)}
+            />
+
+
+            {/* Time of the event */}
+            <Typography variant='body' color='textSecondary' gutterBottom>
+              Time of the event
+            </Typography>
+            <div className='time'>
+              
+               <TextField type='time' margin='dense' variant='outlined' onChange={handleTime}/>
+               <TextField type='date' margin='dense' variant='outlined' onChange={handleDate}/>
+            </div>
+            {/* Venue of the event */}
+            <TextField type='text' variant='outlined' margin='dense' label='venue' onChange={e => setVenue(e.target.value)} />
 
            <Button variant="contained" margin='dense' color="primary"  onClick={handleSubmit}>Submit</Button>
         </FormControl>
@@ -113,4 +147,4 @@ const AddResource = () => {
   )
 }
 
-export default AddResource
+export default AddEvent

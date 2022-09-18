@@ -6,3 +6,21 @@
 .input{
   margin: 20px;
 }
+
+body{
+  background-color: #f5f5f5;
+  width: 70%;
+  margin: 0 auto;
+}
+.time{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 600px) {
+  body{
+    width: 100%;
+  }
+  
+}
