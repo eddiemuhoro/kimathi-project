@@ -30,7 +30,7 @@ const AddResource = () => {
         const storageRef = ref(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
-        //progress of upload
+        //progress of uploads
         uploadTask.on('state_changed', (snapshot)=>{
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log('Upload is '+ progress + '% done');
