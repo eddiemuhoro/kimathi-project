@@ -14,6 +14,14 @@ const firebaseConfig = {
   messagingSenderId: "857052161615",
   appId: "1:857052161615:web:00931567f820bd62d6ec3a",
   measurementId: "G-5Q70705WD3"
+  // apiKey: "AIzaSyB4FvwEVS8EZxrxvkNxL58itASSjtJxu9k",
+  // authDomain: "apt-rite-346310.firebaseapp.com",
+  // databaseURL: "https://apt-rite-346310-default-rtdb.firebaseio.com",
+  // projectId: "apt-rite-346310",
+  // storageBucket: "apt-rite-346310.appspot.com",
+  // messagingSenderId: "780318268681",
+  // appId: "1:780318268681:web:4aa488caf655a7839487d8",
+  // measurementId: "G-MBDL1YQ10P"
 };
 
 // Initialize Firebase
@@ -24,3 +32,4 @@ export const storage = getStorage(app)
 export const db = getFirestore(app)
 
 export const auth= getAuth(app)
+

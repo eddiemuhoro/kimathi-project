@@ -16,8 +16,9 @@ const AddEvent = () => {
     const [organizer, setOrganizer]= useState('')
     const [venue, setVenue]= useState('')
     const [data, setData]= useState([]);
-
     const [isfile, setFile] = useState(null)
+
+    
     const handleImageAsFile= (e)=>{
       setFile(e.target.files[0]);
     }
@@ -38,7 +39,7 @@ const AddEvent = () => {
 
           //storage for images
         const storage= getStorage();
-        var storagePath = 'images/' + file.name;
+        var storagePath = 'events/' + file.name;
         const storageRef = ref(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -55,7 +56,7 @@ const AddEvent = () => {
           getDownloadURL(uploadTask.snapshot.ref)
           .then((url)=>{
             console.log('file available at' , url);
-            const moviesCollectionRef = collection(db, 'movies')
+            const moviesCollectionRef = collection(db, 'events')
             //add values to firestore firebase
             if(name=== '' || desc ===''){
               return
@@ -76,12 +77,13 @@ const AddEvent = () => {
     <div>
       
         <h4>Add Event</h4>
-        <FormControl>
+        <FormControl className='form-control'>
             
             <TextField 
             className='input'
             margin='dense'
             label='event name'
+            title='event name'
             variant='outlined'
             placeholder='Movie Name'
             value={name}
@@ -134,8 +136,8 @@ const AddEvent = () => {
             </Typography>
             <div className='time'>
               
-               <TextField type='time' margin='dense' variant='outlined' onChange={handleTime}/>
-               <TextField type='date' margin='dense' variant='outlined' onChange={handleDate}/>
+               <TextField type='time'  margin='dense' variant='outlined' onChange={handleTime}/>
+               <TextField type='date'  margin='dense' variant='outlined' onChange={handleDate}/>
             </div>
             {/* Venue of the event */}
             <TextField type='text' variant='outlined' margin='dense' label='venue' onChange={e => setVenue(e.target.value)} />

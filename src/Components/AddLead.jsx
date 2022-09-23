@@ -3,15 +3,15 @@ import { Button, TextField, FormControl, Typography} from '@material-ui/core'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../lib/init-firebase'
 import {urlImage} from './images-firebase/ImageStore'
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import firebase from 'firebase/compat/app';
 
-const AddNews = () => {
-    const [title, setName]= useState('')
-    const [description, setDesc]= useState('')
-    const [link, setLink]= useState('')
-
+const AddLead = () => {
+    const [name, setName]= useState('')
+    const [role, setDesc]= useState('')
+    const [phone, setLink]= useState('')
+    const [email, setEmail]= useState('')
     const [isfile, setFile] = useState(null)
     const handleImageAsFile= (e)=>{
       setFile(e.target.files[0]);
@@ -26,7 +26,7 @@ const AddNews = () => {
 
           //storage for images
         const storage= getStorage();
-        var storagePath = 'news/' + file.name;
+        var storagePath = 'leads/' + file.name;
         const storageRef = ref(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -43,12 +43,12 @@ const AddNews = () => {
           getDownloadURL(uploadTask.snapshot.ref)
           .then((imageUrl)=>{
             console.log('file available at' , imageUrl);
-            const resourceCollectionRef = collection(db, 'news' )
+            const resourceCollectionRef = collection(db, 'leads')
             //add values to firestore firebase
-            if(title=== '' || description ===''){
+            if(name=== '' || role ===''){
               return
             }
-             addDoc(resourceCollectionRef, {imageUrl, title , description , link})
+             addDoc(resourceCollectionRef, {imageUrl, name , role , phone, email})
              setFile(null);
           })
         }
@@ -63,16 +63,17 @@ const AddNews = () => {
   return (
     <div>
       
-        <h4>Add News</h4>
+        <h4>Add Lead</h4>
         <FormControl className='form-control'>
             
             <TextField 
+            required
             className='input'
             margin='dense'
-            label='Title of announcement'
+            label='Lead name'
             variant='outlined'
             placeholder='Name'
-            value={title}
+            value={name}
              id="name" 
              type='text' 
              aria-describedby="my-helper-text"
@@ -81,26 +82,37 @@ const AddNews = () => {
             <TextField
             margin='dense'
              variant='outlined'
-                placeholder=' Description'
+                placeholder=' Role'
             title='desc'
-             id="resource" 
+             id="role" 
              type='text' 
              aria-describedby="my-helper-text"
-              label='Resource Description'
-              value= {description}
+              label="Lead's role"
+              value= {role}
               onChange={e => setDesc(e.target.value)} />
 
         <TextField
               margin='dense'
               variant='outlined'
-              placeholder='Link'
+              placeholder='Phone number' 
               title='link'
               id="link" 
               type='text' 
               aria-describedby="my-helper-text"
-              label='link'
-              value= {link}
+              label='Phone number'
+              value= {phone}
               onChange={e => setLink(e.target.value)} />
+
+        <TextField
+              margin='dense'
+              variant='outlined'
+              title='email'
+              id="email" 
+              type='email' 
+              aria-describedby="my-helper-text"
+              label='Email'
+                value= {email}
+              onChange={e => setEmail(e.target.value)} />
 
          
             <TextField id='file' type="file" accept=".png, .jpg, .jpeg" onChange={handleImageAsFile} label='' variant='outlined' />
@@ -113,4 +125,4 @@ const AddNews = () => {
   )
 }
 
-export default AddNews
+export default AddLead

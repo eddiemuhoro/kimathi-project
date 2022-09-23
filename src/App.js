@@ -19,20 +19,22 @@ import Auth from './Components/Authentication/components/auth';
 import AddEvent from './Components/AddEvent';
 import AddNews from './Components/AddNews';
 import AddResource from './Components/AddResource';
+import AddLead from './Components/AddLead';
+import NavBar from './Components/Layout/NavBar';
 function App() {
   const { user, loading, error } = useUserContext();
   return (
    <>
     <div className="App">
-      {error && <p className="error">{error}</p>}
-      {loading ? <h2>Loading...</h2> : <> {user ? ( <BrowserRouter>
-      <Layout/>
-        <Routes>
+    <BrowserRouter>
+      <NavBar/>
+        <Routes className='z-control'>
           <Route path="/" element={<AddEvent/>}/>
           <Route path="resource" element={ <AddResource /> } />
           <Route path="news" element={ <AddNews/> } />
+          <Route path="leads" element={ <AddLead/> } />
         </Routes>
-      </BrowserRouter>) : <Auth />} </>}
+      </BrowserRouter>
       {/* <BrowserRouter>
       <Layout/>
         <Routes>

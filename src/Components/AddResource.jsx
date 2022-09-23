@@ -8,8 +8,8 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/
 import firebase from 'firebase/compat/app';
 
 const AddResource = () => {
-    const [name, setName]= useState('')
-    const [desc, setDesc]= useState('')
+    const [title, setName]= useState('')
+    const [description, setDesc]= useState('')
     const [link, setLink]= useState('')
 
     const [isfile, setFile] = useState(null)
@@ -41,14 +41,14 @@ const AddResource = () => {
         ()=>{
           //get the image url
           getDownloadURL(uploadTask.snapshot.ref)
-          .then((url)=>{
-            console.log('file available at' , url);
-            const resourceCollectionRef = collection(db, 'todos')
+          .then((imageUrl)=>{
+            console.log('file available at' , imageUrl);
+            const resourceCollectionRef = collection(db, 'resources')
             //add values to firestore firebase
-            if(name=== '' || desc ===''){
+            if(title=== '' || description ===''){
               return
             }
-             addDoc(resourceCollectionRef, {url, name , desc })
+             addDoc(resourceCollectionRef, {imageUrl, title , description , link})
              setFile(null);
           })
         }
@@ -64,15 +64,15 @@ const AddResource = () => {
     <div>
       
         <h4>Add Resource</h4>
-        <FormControl>
+        <FormControl className='form-control'>
             
             <TextField 
             className='input'
             margin='dense'
             label='Resource name'
             variant='outlined'
-            placeholder='Movie Name'
-            value={name}
+            placeholder='Resource name'
+            value={title}
              id="name" 
              type='text' 
              aria-describedby="my-helper-text"
@@ -81,19 +81,19 @@ const AddResource = () => {
             <TextField
             margin='dense'
              variant='outlined'
-                placeholder='Movie Description'
+                placeholder=' Description'
             title='desc'
              id="resource" 
              type='text' 
              aria-describedby="my-helper-text"
               label='Resource Description'
-              value= {desc}
+              value= {description}
               onChange={e => setDesc(e.target.value)} />
 
         <TextField
               margin='dense'
               variant='outlined'
-              placeholder='Movie Description'
+              placeholder='Link'
               title='link'
               id="link" 
               type='text' 

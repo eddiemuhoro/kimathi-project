@@ -2,7 +2,17 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+      {/* {error && <p className="error">{error}</p>}
+      {loading ? <h2>Loading...</h2> : <> {user ? ( <BrowserRouter>
+      <Layout/>
+        <Routes>
+          <Route path="/" element={<AddEvent/>}/>
+          <Route path="resource" element={ <AddResource /> } />
+          <Route path="news" element={ <AddNews/> } />
+        </Routes>
+      </BrowserRouter>) : <Auth />} </>} */}
+    </div>
   )
 }
 
