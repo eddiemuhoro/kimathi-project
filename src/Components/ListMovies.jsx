@@ -5,6 +5,7 @@ import { db } from '../lib/init-firebase'
 import { Button, Card, CardActionArea, CardActions, CardContent, CircularProgress, Typography } from '@material-ui/core'
 import Realtime from './Realtime'
 const ListMovies = () => {
+    // State
     const [movies, setMovies] = useState([])
 
     useEffect(()=>{

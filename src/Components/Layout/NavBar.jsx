@@ -36,6 +36,12 @@ const NavBar = () => {
             icon: <FaIcons.FaEnvelope/>,
             cn: 'nav-text'
         },
+        {
+            title: "Client",
+            path: '/client',
+            icon: <FaIcons.FaEnvelope/>,
+            cn: 'nav-text'
+        },
     ]
     
 

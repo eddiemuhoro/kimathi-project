@@ -26,7 +26,7 @@ const AddLead = () => {
 
           //storage for images
         const storage= getStorage();
-        var storagePath = 'leads/' + file.name;
+        var storagePath = 'products/' + file.name;
         const storageRef = ref(storage, storagePath);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -39,7 +39,7 @@ const AddLead = () => {
           console.log(error)
         },
         ()=>{
-          //get the image url
+          //get the image url 
           getDownloadURL(uploadTask.snapshot.ref)
           .then((imageUrl)=>{
             console.log('file available at' , imageUrl);
