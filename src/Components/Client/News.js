@@ -38,9 +38,7 @@ const News = () => {
                 </div>
             ))}
         </div>
-        <div className='leads-info'>
-              <Leads/>
-        </div>
+       
     </div>
   )
 }

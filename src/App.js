@@ -15,6 +15,7 @@ import AddNews from './Components/AddNews';
 import Resources from './Components/Client/Resources';
 import Slideshow from './Components/Client/Slider';
 import News from './Components/Client/News';
+import Leads from './Components/Client/Leads';
 function App() {
   const { user, loading, error } = useUserContext();
   return (
@@ -31,7 +32,11 @@ function App() {
           <Route path="resource" element={ <Resources /> } />
           <Route path="news" element={ <News/> } />
         </Routes>
+
       </BrowserRouter>
+      <div className='leads-info'>
+              <Leads/>
+            </div>
     </div>
 
    </>

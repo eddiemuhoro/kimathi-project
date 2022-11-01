@@ -85,9 +85,7 @@ const Client = () => {
         
             ))}
 
-            <div className='leads-info'>
-              <Leads/>
-            </div>
+            
       </div>
          
       
