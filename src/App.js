@@ -16,6 +16,8 @@ import Resources from './Components/Client/Resources';
 import Slideshow from './Components/Client/Slider';
 import News from './Components/Client/News';
 import Leads from './Components/Client/Leads';
+import Home from './Components/Client/Home';
+
 function App() {
   const { user, loading, error } = useUserContext();
   return (
@@ -31,11 +33,19 @@ function App() {
           <Route path="/" element={<Client/>}/>
           <Route path="resource" element={ <Resources /> } />
           <Route path="news" element={ <News/> } />
+          
         </Routes>
 
       </BrowserRouter>
       <div className='leads-info'>
               <Leads/>
+      </div>
+
+
+            <div className='ttcont'>
+              <div className='top-title'>
+                  GDSC KIMATHI
+              </div>
             </div>
     </div>
 

@@ -38,9 +38,13 @@ const Resources = () => {
                         <image>
                             <img src={resource.data.imageUrl} alt={resource.data.name}/>
                         </image>
-                        <h4>{resource.data.title}</h4>
+                        
                     </section>
-                    <p>{resource.data.description}</p>
+                    <div >
+                        <a href={resource.data.link} rel="noreferrer" target='_blank'><h4>{resource.data.title}</h4></a>
+                        
+                        <p>{resource.data.description}</p>
+                    </div>
                     {/* <a href={resource.data.link} rel="noreferrer" target='_blank'>Link</a> */}
                     {/* <Button variant='contained' color='secondary' onClick={() => deleteMovie(resource.id)}>Delete</Button> */}
 

@@ -6,7 +6,7 @@ import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 
 
-const Leads = () => {
+const Home = () => {
 
     const [leads, setLeads] = useState([])
 
@@ -21,11 +21,10 @@ const Leads = () => {
         }
     }, [])
   return (
-    <div style={{display:'flex', flexDirection:'column', justifyContent:'space-around', height:'100%'}}>
-       
+    <div>
+        <h1>Leads</h1>
 
         <div className='lead-info'>
-        <h1>Leads</h1>
                 <img src='https://upload.wikimedia.org/wikipedia/commons/d/d6/Sundar_pichai.png' alt='lead'/>
                 <h5>Sundar Pichai</h5>
                 <h4>GDSC Lead</h4>
@@ -39,8 +38,8 @@ const Leads = () => {
 
         <Slide>
            {leads.map(lead => (
-            <div className='lead-info'>
-                <image className='leadImg'>
+            <div className=''>
+                <image className=''>
 
                 <img src={lead.data.imageUrl} alt={lead.data.name}/>
                 </image>
@@ -61,4 +60,4 @@ const Leads = () => {
   )
 }
 
-export default Leads
+export default Home

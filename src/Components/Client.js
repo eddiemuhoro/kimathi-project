@@ -52,31 +52,36 @@ const Client = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea> */}
-                    <a  style={{textDecoration: 'none'}} href={movie.data.link} rel="noreferrer" target='_blank'>
-                    <CardHeader 
-                        avatar={
-                        <Avatar  arial-label="recipe" >
-                            <img src={movie.data.url} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt='image'/>
-                        </Avatar>
-                        }
-                        title={movie.data.name}
-                        subheader={movie.data.desc}
-                        />
+                    <a  style={{textDecoration: 'none', color:'navy'}} href={movie.data.link} rel="noreferrer" target='_blank'>
+                    <header style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+                        <CardHeader 
+                            avatar={
+                            <Avatar  arial-label="recipe" >
+                                <img src={movie.data.imageUrl} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt={movie.data.name}/>
+                            </Avatar>
+                            }
+                            title={movie.data.title}
+                            subheader={movie.data.desc}
+                            />
+
+                            <div>
+
+                                <Typography variant='body2' color='text.secondar'>
+                                    {movie.data.date}
+                                </Typography>
+                                <Typography variant='body2' color='text.secondar'>
+                                {movie.data.time}
+                                </Typography>
+                            </div>
+                    </header>
+
                     </a>
 
                             <CardContent style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <div>
-
-                                    <Typography variant='body2' color='text.secondar'>
-                                        Date: 12/12/2021
-                                    </Typography>
-                                    <Typography variant='body2' color='text.secondar'>
-                                    Time: 2.30pm
-                                     </Typography>
-                                </div>
+                               
                                 <div>
                                     <Typography variant='body2' color='text.secondary'>
-                                        {movie.data.desc}
+                                        {movie.data.description}
                                     </Typography>
                                 </div>
                             </CardContent>

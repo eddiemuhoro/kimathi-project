@@ -1,6 +1,6 @@
 import { onSnapshot } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
-import { newsCollectionRef, resourcesCollectionRef } from '../../lib/firestoreCollections'
+import { newsCollectionRef } from '../../lib/firestoreCollections'
 import Leads from './Leads'
 
 const News = () => {
@@ -19,7 +19,7 @@ const News = () => {
     }, [])
   return (
     <div className='events-container'>
-        <h1>Resources</h1>
+        <h1>News</h1>
         <div className='resource-elements'>
             {news.map((resource, index)=>(
                 <div className='resource-info'>
@@ -29,7 +29,7 @@ const News = () => {
                         </image>
                         
                     <section style={{marginLeft:'20px'}}>
-                        <h4>{resource.data.title}</h4>
+                        <h4>{resource.data.name}</h4>
                         <p>{resource.data.description}</p>
                     </section>
                     {/* <a href={resource.data.link} rel="noreferrer" target='_blank'>Link</a> */}

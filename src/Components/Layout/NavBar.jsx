@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa'
 import * as AiIcons from 'react-icons/ai'
 import * as IoIcons from 'react-icons/io'
@@ -36,12 +36,12 @@ const NavBar = () => {
             icon: <FaIcons.FaEnvelope/>,
             cn: 'nav-text'
         },
-        {
-            title: "Client",
-            path: '/client',
-            icon: <FaIcons.FaEnvelope/>,
-            cn: 'nav-text'
-        },
+        // {
+        //     title: "Client",
+        //     path: '/client',
+        //     icon: <FaIcons.FaEnvelope/>,
+        //     cn: 'nav-text'
+        // },
     ]
     
 
@@ -63,14 +63,14 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li className='nav-text gdsc-title'>
-                        GDSC KIMATHI
+                       Home
                     </li>
                     {SiedeBarData.map(( data)=>{
                     return(
                             <li  className={data.cn}>
-                                <Link to ={data.path}>
+                                <NavLink  to ={data.path}>
                                     {data.icon}<span style={{marginLeft: '10px'}}>{data.title}</span>
-                                </Link>
+                                </NavLink>
                             </li>
                             )
                     })}
