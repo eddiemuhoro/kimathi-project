@@ -13,6 +13,8 @@ import Client from './Components/Client';
 import AddResource from './Components/AddResource';
 import AddNews from './Components/AddNews';
 import Resources from './Components/Client/Resources';
+import Slideshow from './Components/Client/Slider';
+import News from './Components/Client/News';
 function App() {
   const { user, loading, error } = useUserContext();
   return (
@@ -20,14 +22,14 @@ function App() {
     <div className="App">
 
 
-
+      {/* <Slideshow /> */}
 
       <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path="/" element={<Client/>}/>
           <Route path="resource" element={ <Resources /> } />
-          <Route path="news" element={ <AddNews/> } />
+          <Route path="news" element={ <News/> } />
         </Routes>
       </BrowserRouter>
     </div>

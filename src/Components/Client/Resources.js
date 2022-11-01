@@ -49,7 +49,7 @@ const Resources = () => {
         </div>
         <div className='leads-info'>
               <Leads/>
-            </div>
+        </div>
     </div>
   )
 }
