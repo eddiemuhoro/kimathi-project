@@ -84,7 +84,7 @@ ul{
     flex-direction: column;
     justify-content: space-between;
     padding-top: 60px;
-    width: 250px;
+    width: 25%;
    }
    .nav-close{
          display: none;

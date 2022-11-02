@@ -41,7 +41,7 @@ const Client = () => {
         {movies.map(movie=>(
             
                 <Card style={{margin: '20px'}}>
-                    {/* <CardActionArea>
+                    {/*<CardActionArea>
                         <CardContent>
                             <Avatar/>
                             <Typography variant='h5' component='h2'>
@@ -52,7 +52,6 @@ const Client = () => {
                             </Typography>
                         </CardContent>
                     </CardActionArea> */}
-                    <a  style={{textDecoration: 'none', color:'navy'}} href={movie.data.link} rel="noreferrer" target='_blank'>
                     <header style={{display:'flex', justifyContent:'space-between', alignItems:'center'}}>
                         <CardHeader 
                             avatar={
@@ -60,7 +59,7 @@ const Client = () => {
                                 <img src={movie.data.imageUrl} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt={movie.data.name}/>
                             </Avatar>
                             }
-                            title={movie.data.title}
+                            title={movie.data.name}
                             subheader={movie.data.desc}
                             />
 
@@ -75,14 +74,18 @@ const Client = () => {
                             </div>
                     </header>
 
-                    </a>
 
                             <CardContent style={{display: 'flex', justifyContent: 'space-between'}}>
                                
                                 <div>
                                     <Typography variant='body2' color='text.secondary'>
                                         {movie.data.description}
+                                        
                                     </Typography>
+                                    <a  style={{textDecoration: 'none', color:'navy'}} href={movie.data.link} rel="noreferrer" target='_blank'>
+
+                                     <Button className='seemore-btn' outline='contained' >More Details</Button>
+                                    </a>
                                 </div>
                             </CardContent>
 

@@ -17,6 +17,8 @@ import Slideshow from './Components/Client/Slider';
 import News from './Components/Client/News';
 import Leads from './Components/Client/Leads';
 import Home from './Components/Client/Home';
+//auth
+
 
 function App() {
   const { user, loading, error } = useUserContext();
@@ -26,7 +28,19 @@ function App() {
 
 
       {/* <Slideshow /> */}
-
+      {/* {error && <p className="error">{error}</p>}
+      {loading ? <h2>Loading...</h2> : <> {user ? ( <BrowserRouter>
+      <Layout/>
+        <Routes>
+          <Route path="/" element={<AddResource/>}/>
+          <Route path="movies" element={ <Realtime/> } />
+          <Route path="movies" element={ <Client /> } />
+          <Route path="contact" element={ <Contact/> } />
+        </Routes>
+      </BrowserRouter>) : <Auth />} </>} */}
+{error && <p className="error">{error}</p>}
+      {loading ? <h2>Loading...</h2> : <> {user ? ( 
+      <>
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -37,16 +51,16 @@ function App() {
         </Routes>
 
       </BrowserRouter>
-      <div className='leads-info'>
-              <Leads/>
-      </div>
-
-
+          <div className='leads-info'>
+                  <Leads/>
+          </div>
             <div className='ttcont'>
               <div className='top-title'>
                   GDSC KIMATHI
               </div>
-            </div>
+            </div> 
+            </>
+            ) : <Auth />} </>}
     </div>
 
    </>
