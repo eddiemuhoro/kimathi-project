@@ -41,7 +41,7 @@ const Client = () => {
         {movies.map(movie=>(
             
                 <Card style={{margin: '20px'}}>
-                    {/*<CardActionArea>
+                    {/* <CardActionArea>
                         <CardContent>
                             <Avatar/>
                             <Typography variant='h5' component='h2'>
@@ -59,8 +59,8 @@ const Client = () => {
                                 <img src={movie.data.imageUrl} style={{height: '50px', width: '50px', borderRadius: '50%'}} alt={movie.data.name}/>
                             </Avatar>
                             }
-                            title={movie.data.name}
-                            subheader={movie.data.desc}
+                            title={movie.data.title}
+                            subheader={movie.data.organizer}
                             />
 
                             <div>

@@ -38,9 +38,7 @@ function App() {
           <Route path="contact" element={ <Contact/> } />
         </Routes>
       </BrowserRouter>) : <Auth />} </>} */}
-{error && <p className="error">{error}</p>}
-      {loading ? <h2>Loading...</h2> : <> {user ? ( 
-      <>
+
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -59,8 +57,7 @@ function App() {
                   GDSC KIMATHI
               </div>
             </div> 
-            </>
-            ) : <Auth />} </>}
+           
     </div>
 
    </>
