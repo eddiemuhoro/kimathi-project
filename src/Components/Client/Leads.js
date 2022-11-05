@@ -26,8 +26,8 @@ const Leads = () => {
 
         <div className='lead-info'>
         <h1>Leads</h1>
-                <img src='https://upload.wikimedia.org/wikipedia/commons/d/d6/Sundar_pichai.png' alt='lead'/>
-                <h5>Sundar Pichai</h5>
+                <img src='https://firebasestorage.googleapis.com/v0/b/apt-rite-346310.appspot.com/o/EcoVille%2Fscaled_image_picker1666901294178754526.jpg?alt=media&token=1367b1f3-10d3-42d6-a42f-dce96113ce56' alt='lead'/>
+                <h5>Emilio Kariuki</h5>
                 <h4>GDSC Lead</h4>
                 <social className='leads-social-icons'>
                     <WhatsApp/>

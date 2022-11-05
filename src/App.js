@@ -50,7 +50,6 @@ function App() {
 
       </BrowserRouter>
           <div className='leads-info'>
-                  <Leads/>
           </div>
             <div className='ttcont'>
               <div className='top-title'>
