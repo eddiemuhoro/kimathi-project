@@ -42,8 +42,8 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Client/>}/>
-          <Route path="resource" element={ <Resources /> } />
+          <Route path="/events" element={<Client/>}/>
+          <Route path="/" element={ <Resources /> } />
           <Route path="news" element={ <News/> } />
           
         </Routes>

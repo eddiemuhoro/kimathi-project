@@ -14,29 +14,25 @@ const NavBar = () => {
 
     const SiedeBarData=[
         {
-            title: "Events",
-            path: '/',
-            icon: <AiIcons.AiFillHome/>,
-            cn: 'nav-text'
-        },
-        {
             title: "Resources",
-            path: '/resource',
+            path: '/',
             icon: <IoIcons.IoIosPaper/>,
             cn: 'nav-text'
         },
+        {
+            title: "Events",
+            path: '/events',
+            icon: <AiIcons.AiFillHome/>,
+            cn: 'nav-text'
+        },
+       
         {
             title: "News",
             path: '/news',
             icon: <IoIcons.IoMdPeople/>,
             cn: 'nav-text'
         },
-        {
-            title: "Leads",
-            path: '/leads',
-            icon: <FaIcons.FaEnvelope/>,
-            cn: 'nav-text'
-        },
+      
         // {
         //     title: "Client",
         //     path: '/client',
