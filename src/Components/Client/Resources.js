@@ -32,7 +32,7 @@ const Resources = () => {
     const [query, setQuery]= useState('')
   return (
     <div className='events-container'>
-        <h1>Resources</h1>
+        <h4>Resources</h4>
         <input type='text' placeholder='search' onChange={(e)=> setQuery(e.target.value)} />
         <div className='resource-elements'>
             {resources.filter(resource => resource.data.title.toLowerCase().includes(query)

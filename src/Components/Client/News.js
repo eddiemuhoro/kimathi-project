@@ -19,8 +19,14 @@ const News = () => {
     }, [])
   return (
     <div className='events-container'>
-        <h1>News</h1>
+        <h4>News</h4>
+        <div>
+                        <h4>No news has been posted yet</h4>
+                    </div>
         <div className='resource-elements'>
+           
+                 
+                
             {news.map((resource, index)=>(
                 <div className='resource-info'>
                    

@@ -38,6 +38,7 @@ const Client = () => {
    
       <div className='events-container'>
         <h4>Upcoming Events</h4>
+        <h4>No events have been posted yet</h4>
         {movies.map(movie=>(
             
                 <Card style={{margin: '20px'}}>
